@@ -75,15 +75,15 @@ public:
     }
   }
 
-  void getLeaves(No *no) {
+  void getFolhas(No *no) {
     if (no->getDireita() == NULL && no->getEsquerda() == NULL) {
       cout << no->getDados() << " ";
     } else {
       if (no->getDireita() != NULL) {
-        getLeaves(no->getDireita());
+        getFolhas(no->getDireita());
       }
       if (no -> getEsquerda() != NULL) {
-        getLeaves(no->getEsquerda());
+        getFolhas(no->getEsquerda());
       }
     }
   }
@@ -169,10 +169,10 @@ public:
         print(no);
         cout << "\n";
       }
-      if (no->getEsquerda()) {
+      if (no->getEsquerda() != NULL) {
         getSubarvore(no->getEsquerda());
       }
-      if (no->getDireita()) {
+      if (no->getDireita() != NULL) {
         getSubarvore(no->getDireita());
       }
     };
@@ -200,7 +200,7 @@ int main() {
   cout << "a) ";
   arvore.print(arvore.getRaiz());
   cout << "\n\nb) ";
-  arvore.getLeaves(arvore.getRaiz());
+  arvore.getFolhas(arvore.getRaiz());
   cout << "\n\nc) ";
   arvore.getGrau(arvore.getRaiz());
   cout << "\nd) ";
